@@ -223,9 +223,9 @@ GameObject:
   - component: {fileID: 160948908}
   - component: {fileID: 160948907}
   - component: {fileID: 160948906}
-  - component: {fileID: 160948905}
   - component: {fileID: 160948909}
   - component: {fileID: 160948904}
+  - component: {fileID: 160948905}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -248,8 +248,9 @@ MonoBehaviour:
   movementSpeed: 250
   mouseSensitivity: 3
   playerCamera: {fileID: 963194228}
---- !u!65 &160948905
-BoxCollider:
+  shineShader: {fileID: 2100000, guid: 307c0d7e4585639429e94323eb34cd87, type: 2}
+--- !u!136 &160948905
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -258,8 +259,9 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &160948906
 MeshRenderer:
@@ -268,7 +270,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160948903}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -278,7 +280,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 307c0d7e4585639429e94323eb34cd87, type: 2}
+  - {fileID: 2100000, guid: fab626247e972bc4a9b06cb613eef9b4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -306,7 +308,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160948903}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &160948908
 Transform:
   m_ObjectHideFlags: 0
@@ -315,8 +317,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160948903}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.40128374, y: 1.8, z: -3.09}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.3756, y: 2.32, z: -3.09}
+  m_LocalScale: {x: 0.9486, y: 1.1447, z: 1}
   m_Children:
   - {fileID: 963194228}
   m_Father: {fileID: 0}
