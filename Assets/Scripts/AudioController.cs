@@ -1,18 +1,18 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
 public class AudioController : MonoBehaviour
 {
-    public AudioSource testSound;
+    public AudioSource audioSouce;
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            testSound.Play();
+            audioSouce.Play();
         }
     }
 }
