@@ -9,6 +9,8 @@ public class AudioTest : MonoBehaviour
     public float whait2;
     public bool audio = false;
 
+    public List<AudioClip> clips;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,10 +40,12 @@ public class AudioTest : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(whait,whait2));
+            yield return new WaitForSeconds(whait);
             if (audio)
             {
+                testSouce.clip = clips[Random.Range(0, clips.Count)];
                 testSouce.Play();
+                yield return new WaitWhile(() => testSouce.isPlaying);
             }
         }
     }
