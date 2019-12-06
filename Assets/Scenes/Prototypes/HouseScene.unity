@@ -347,7 +347,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: fab626247e972bc4a9b06cb613eef9b4, type: 2}
+      objectReference: {fileID: 2100000, guid: 23afc32a4c57417479141058f498e191, type: 2}
+    - target: {fileID: -4840767887717267422, guid: d0209d13fb5c3374f9474613bce54802,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 23afc32a4c57417479141058f498e191, type: 2}
     - target: {fileID: -4216859302048453862, guid: d0209d13fb5c3374f9474613bce54802,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -427,7 +432,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: fab626247e972bc4a9b06cb613eef9b4, type: 2}
+      objectReference: {fileID: 2100000, guid: 23afc32a4c57417479141058f498e191, type: 2}
     - target: {fileID: -4669218053065194732, guid: d0209d13fb5c3374f9474613bce54802,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -452,7 +457,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: fab626247e972bc4a9b06cb613eef9b4, type: 2}
+      objectReference: {fileID: 2100000, guid: 23afc32a4c57417479141058f498e191, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0209d13fb5c3374f9474613bce54802, type: 3}
 --- !u!1 &1814889080
@@ -539,10 +544,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1814889080}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.29635623, y: 0.73658675, z: -0.065622024, w: 0.60440624}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 27.059002, y: 467.027, z: 383.652}
