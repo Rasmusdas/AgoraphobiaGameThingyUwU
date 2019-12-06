@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private Transform playerCamera;
 
+    [SerializeField]
+    private GameObject goodJob;
     
     private bool pickedUp;
 
@@ -38,25 +40,20 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = new Vector3(movementVector.x,rb.velocity.y,movementVector.z);
 
         // Player Picking up object
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.E))
         {
             if(!pickedUp)
             {
-                bool rayHit = Physics.Raycast(playerCamera.position, playerCamera.forward, out RaycastHit hit, 10f);
+                bool rayHit = Physics.Raycast(playerCamera.position, playerCamera.forward, out RaycastHit hit, 2f);
                 if(rayHit)
                 {
                     if (hit.transform.gameObject.tag == "Interactable")
                     {
+                        goodJob.SetActive(true);
                         Physics.IgnoreCollision(hit.collider, GetComponent<Collider>(), true);
                         pickedUpItem = hit.transform;
-                        pickedUp = true;
+                        //pickedUp = true;
                     }
-                    Material pickupShader = pickedUpItem.GetComponent<Renderer>().material;
-                    pickupShader.shader = shineShader.shader;
-                }
-                else
-                {
-                    pickupHand.gameObject.SetActive(false);
                 }
             }
             else
@@ -70,6 +67,7 @@ public class PlayerMovement : MonoBehaviour
         // Picked up object
         if(pickedUp)
         {
+            /*
             if(pickedUpItem.GetComponent<Rigidbody>())
             {
                 pickedUpItem.GetComponent<Rigidbody>().velocity = Vector3.zero;
@@ -83,6 +81,7 @@ public class PlayerMovement : MonoBehaviour
                 pickedUpItem.position = playerCamera.position + (playerCamera.forward * 2);
             }
             pickedUpItem.LookAt(playerCamera);
+            */
         }
 
 

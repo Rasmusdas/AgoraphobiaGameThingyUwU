@@ -320,7 +320,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8ecaf149bcfa0f7468209f512ddf3180, type: 3}
+  m_audioClip: {fileID: 8300000, guid: cbae998781a0c664abff4cebe6d60bec, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -421,7 +421,11 @@ MonoBehaviour:
   testSouce: {fileID: 0}
   whait: 0.25
   whait2: 0.34
-  audio: 0
+  audio: 1
+  clips:
+  - {fileID: 8300000, guid: 8ecaf149bcfa0f7468209f512ddf3180, type: 3}
+  - {fileID: 8300000, guid: be21227554c66a74f9f49f951873fa19, type: 3}
+  - {fileID: 8300000, guid: cbae998781a0c664abff4cebe6d60bec, type: 3}
 --- !u!1 &285787439
 GameObject:
   m_ObjectHideFlags: 0
