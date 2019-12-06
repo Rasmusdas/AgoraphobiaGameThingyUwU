@@ -52,9 +52,7 @@ public class PlayerMovement : MonoBehaviour
                         pickedUp = true;
                     }
                     Material pickupShader = pickedUpItem.GetComponent<Renderer>().material;
-                    Texture _ = Utils.DeepClone<Texture>(pickupShader.mainTexture);
                     pickupShader.shader = shineShader.shader;
-                    pickupShader.SetTexture("_Texture", _);
                 }
                 else
                 {
