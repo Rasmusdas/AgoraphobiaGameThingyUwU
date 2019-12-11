@@ -11,6 +11,9 @@ public class Dialogue : MonoBehaviour
     public Transform textParent;
     public Transform textStart;
 
+    public AudioSource testSouce;
+    public List<AudioClip> clips;
+
     private bool ready;
     private float timePerChar = 0.1f;
     private bool clear;
@@ -35,6 +38,8 @@ public class Dialogue : MonoBehaviour
         {
             yield return new WaitForSeconds(timePerChar);
             text.text += s[i];
+            testSouce.clip = clips[Random.Range(0, clips.Count)];
+            testSouce.Play();
             i++;
         }
         text.text += "\n";
