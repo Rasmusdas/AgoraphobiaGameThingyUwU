@@ -13,14 +13,21 @@ public class Interactable : MonoBehaviour
     {
         rend = GetComponent<Renderer>();
         regular = rend.material;
+        rend.material = glow;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Vector3.Distance(player.position,transform.position) < 3)
+        float dist = Vector3.Distance(player.position, transform.position);
+        if(dist < 5)
         {
             rend.material = glow;
+            if(dist < 2)
+            {
+                dist = 2;
+            }
+            rend.material.SetFloat("_Glow_Amount", Mathf.Exp(dist));
         }
         else
         {
