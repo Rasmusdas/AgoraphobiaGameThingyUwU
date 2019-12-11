@@ -851,6 +851,7 @@ MonoBehaviour:
   movementSpeed: 250
   mouseSensitivity: 3
   playerCamera: {fileID: 106629411}
+  goodJob: {fileID: 0}
   shineShader: {fileID: 2100000, guid: 307c0d7e4585639429e94323eb34cd87, type: 2}
 --- !u!54 &1208072133
 Rigidbody:
