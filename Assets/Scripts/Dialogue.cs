@@ -15,7 +15,8 @@ public class Dialogue : MonoBehaviour
     public List<AudioClip> clips;
 
     private bool ready;
-    private float timePerChar = 0.1f;
+    public float timePerCharTop = 0.1f;
+    public float timePerCharBut = 0.2f;
     private bool clear;
 
     private void Start()
@@ -26,7 +27,7 @@ public class Dialogue : MonoBehaviour
             g.transform.Translate(0, 100, 0);
         }
         textBoxes.Add(textBox);
-        StartCoroutine(WriteLetter("owo what's this uwu", textBox));
+        StartCoroutine(WriteLetter("i want to try something longer so that we can know that is sounds okay when it is bing done for a long time UWU", textBox));
     }
 
     public IEnumerator WriteLetter(string s, GameObject textBox)
@@ -36,9 +37,16 @@ public class Dialogue : MonoBehaviour
         int i = 0;
         while (i < s.Length && !clear)
         {
-            yield return new WaitForSeconds(timePerChar);
+            yield return new WaitForSeconds(Random.Range(timePerCharTop, timePerCharBut));
             text.text += s[i];
-            testSouce.clip = clips[Random.Range(0, clips.Count)];
+            if (s[i] == ' ')
+            {
+                testSouce.clip = clips[0];
+            }
+            else
+            {
+                testSouce.clip = clips[Random.Range(1, clips.Count)];
+            }
             testSouce.Play();
             i++;
         }
@@ -48,7 +56,7 @@ public class Dialogue : MonoBehaviour
             text.text = "";
             clear = false;
         }
-        yield return new WaitForSeconds(timePerChar * 10);
+        yield return new WaitForSeconds(Random.Range(timePerCharTop, timePerCharBut) * 10);
         ready = true;
     }
 }
