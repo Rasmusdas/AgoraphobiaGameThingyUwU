@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interactable : MonoBehaviour
+public abstract class Interactable : MonoBehaviour
 {
     public Transform player;
     public Material glow;
     public Material regular;
-
+    float lastDist;
     Renderer rend;
     void Start()
     {
@@ -16,22 +16,38 @@ public class Interactable : MonoBehaviour
         rend.material = glow;
     }
 
+    bool Interacted { get; set; }
+    public virtual void Interact()
+    {
+        Destroy(gameObject);
+    }
+
     // Update is called once per frame
     void Update()
     {
         float dist = Vector3.Distance(player.position, transform.position);
         if(dist < 5)
         {
-            rend.material = glow;
+            if(rend.material != glow)
+            {
+                rend.material = glow;
+            }
             if(dist < 2)
             {
                 dist = 2;
             }
-            rend.material.SetFloat("_Glow_Amount", Mathf.Exp(dist));
+            if(lastDist > dist + 0.1f && lastDist < dist - 0.1f)
+            {
+                rend.material.SetFloat("_Glow_Amount", Mathf.Exp(dist));
+            }
+            lastDist = dist;
         }
         else
         {
-            rend.material = regular;
+            if(rend.material != regular)
+            {
+                rend.material = regular;
+            }
         }
     }
 }

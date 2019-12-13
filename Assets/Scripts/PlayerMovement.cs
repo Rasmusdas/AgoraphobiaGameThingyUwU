@@ -52,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
                         goodJob.SetActive(true);
                         Physics.IgnoreCollision(hit.collider, GetComponent<Collider>(), true);
                         pickedUpItem = hit.transform;
+                        hit.transform.GetComponent<IInteractable>().Interact();
                         //pickedUp = true;
                     }
                 }

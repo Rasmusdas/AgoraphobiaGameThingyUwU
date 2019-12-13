@@ -4,10 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assets.Scripts
+public interface IInteractable
 {
-    public interface IInteractable
-    {
-        void Interact();
-    }
+    bool Interacted { get; set; }
+    void Interact();
 }
