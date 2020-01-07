@@ -576,8 +576,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: cbb9988e108a0a74e9bcd1ce6de88cce, type: 3}
   - {fileID: 8300000, guid: 2fcee0efd7d6f6c4eab3146f4ac874d5, type: 3}
   - {fileID: 8300000, guid: e9c4bce1402683940a1369e712cc0ee7, type: 3}
-  timePerCharTop: 0.17
-  timePerCharBut: 0.07
+  timePerCharTop: 0.13
+  timePerCharBut: 0.035
 --- !u!4 &1401549496
 Transform:
   m_ObjectHideFlags: 0
@@ -605,7 +605,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 2
   Loop: 0
   Mute: 0
   Spatialize: 0
