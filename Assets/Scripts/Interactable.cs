@@ -9,38 +9,28 @@ public abstract class Interactable : MonoBehaviour
     public Material regular;
     float lastDist;
     Renderer rend;
-    void Start()
+    protected float glowFactor;
+    protected bool interacted;
+
+    private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         rend = GetComponent<Renderer>();
         regular = rend.material;
-        rend.material = glow;
+        glow.SetFloat("_Glow_Amount", 10);
     }
 
-    bool Interacted { get; set; }
-    public virtual void Interact()
-    {
-        Destroy(gameObject);
-    }
+    public abstract void Interact();
 
-    // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
         float dist = Vector3.Distance(player.position, transform.position);
-        if(dist < 5)
+        if (dist < 5 && !interacted)
         {
             if(rend.material != glow)
             {
                 rend.material = glow;
             }
-            if(dist < 2)
-            {
-                dist = 2;
-            }
-            if(lastDist > dist + 0.1f && lastDist < dist - 0.1f)
-            {
-                rend.material.SetFloat("_Glow_Amount", Mathf.Exp(dist));
-            }
-            lastDist = dist;
         }
         else
         {

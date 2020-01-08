@@ -8,5 +8,16 @@ public class Phone : Interactable
     public override void Interact()
     {
         phoneScreen.SetActive(true);
+        interacted = true;
+        StartCoroutine(CloseScreen());
+        FuzzyPlayerVision.minStressValue += 10;
+        FuzzyPlayerVision.maxStressValue += 10;
     }
+
+    private IEnumerator CloseScreen()
+    {
+        yield return new WaitForSeconds(10f);
+        phoneScreen.SetActive(false);
+    }
+
 }
