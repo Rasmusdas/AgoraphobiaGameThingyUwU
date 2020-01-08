@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -12,16 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     private Transform playerCamera;
-
-    [SerializeField]
-    private GameObject goodJob;
-    
-    private bool pickedUp;
-
-    [SerializeField]
-    private Material shineShader;
-    private Transform pickedUpItem;
-    private Transform pickupHand;
+   
     private Rigidbody rb;
 
     private void Start()
@@ -29,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         rb = GetComponent<Rigidbody>();
+        
     }
 
     void Update()
@@ -39,52 +32,18 @@ public class PlayerMovement : MonoBehaviour
         Vector3 movementVector = transform.forward * y + transform.right*x;
         rb.velocity = new Vector3(movementVector.x,rb.velocity.y,movementVector.z);
 
-        // Player Picking up object
+        // Player Interacting with GameObject
         if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.E))
         {
-            if(!pickedUp)
+            bool rayHit = Physics.Raycast(playerCamera.position, playerCamera.forward, out RaycastHit hit, 2f);
+            if (rayHit)
             {
-                bool rayHit = Physics.Raycast(playerCamera.position, playerCamera.forward, out RaycastHit hit, 2f);
-                if(rayHit)
+                if (hit.transform.tag == "Interactable")
                 {
-                    if (hit.transform.gameObject.tag == "Interactable")
-                    {
-                        goodJob.SetActive(true);
-                        Physics.IgnoreCollision(hit.collider, GetComponent<Collider>(), true);
-                        pickedUpItem = hit.transform;
-                        hit.transform.GetComponent<IInteractable>().Interact();
-                        //pickedUp = true;
-                    }
+                    hit.transform.GetComponent<Interactable>().Interact();
                 }
             }
-            else
-            {
-                Physics.IgnoreCollision(pickedUpItem.GetComponent<Collider>(), GetComponent<Collider>(), false);
-                pickedUpItem = null;
-                pickedUp = false;
-            }
         }
-
-        // Picked up object
-        if(pickedUp)
-        {
-            /*
-            if(pickedUpItem.GetComponent<Rigidbody>())
-            {
-                pickedUpItem.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            }
-            if(Physics.Raycast(playerCamera.position, playerCamera.forward, out RaycastHit hit, playerCamera.forward.magnitude*2,LayerMask.GetMask("Default")))
-            {
-                pickedUpItem.position = hit.point;
-            }
-            else
-            {
-                pickedUpItem.position = playerCamera.position + (playerCamera.forward * 2);
-            }
-            pickedUpItem.LookAt(playerCamera);
-            */
-        }
-
 
         // Camera Rotation
         float mouseY = Input.GetAxis("Mouse X") * mouseSensitivity;
