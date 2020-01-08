@@ -7,7 +7,8 @@ public abstract class Interactable : MonoBehaviour
     private Transform player;
     public Material glow;
     private Material regular;
-    public AudioSource sound;
+    [SerializeField]
+    protected AudioSource sound;
     float lastDist;
     Renderer rend;
     protected float glowFactor;
