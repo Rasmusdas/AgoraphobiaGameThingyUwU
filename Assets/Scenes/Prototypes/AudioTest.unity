@@ -274,6 +274,7 @@ GameObject:
   m_Component:
   - component: {fileID: 175284823}
   - component: {fileID: 175284822}
+  - component: {fileID: 175284826}
   - component: {fileID: 175284825}
   - component: {fileID: 175284824}
   m_Layer: 0
@@ -290,7 +291,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 175284821}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fdec97344df09644d87af202414d6077, type: 3}
   m_Name: 
@@ -426,6 +427,23 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8ecaf149bcfa0f7468209f512ddf3180, type: 3}
   - {fileID: 8300000, guid: be21227554c66a74f9f49f951873fa19, type: 3}
   - {fileID: 8300000, guid: cbae998781a0c664abff4cebe6d60bec, type: 3}
+--- !u!114 &175284826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175284821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79745de5e567d27499d1252101544138, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  on: {fileID: 8300000, guid: 0a6c88f12bd72d14a8c9e9f9d91bdb01, type: 3}
+  off: {fileID: 8300000, guid: 801b7b7a57f5dc44aaea335af4fd7aad, type: 3}
+  running: {fileID: 8300000, guid: 67d17142978a21c4dbea5352de601cdd, type: 3}
+  shower: {fileID: 1057596938}
+  showerOn: 0
 --- !u!1 &179051700
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,10 +486,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 06d0d634557b4f3439d82f9bd51f973b, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1007,7 +1025,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7d37f08a64202734c81ab7931d0da7d4, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 67d17142978a21c4dbea5352de601cdd, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1218,8 +1236,6 @@ MonoBehaviour:
   movementSpeed: 250
   mouseSensitivity: 3
   playerCamera: {fileID: 106629411}
-  goodJob: {fileID: 0}
-  shineShader: {fileID: 2100000, guid: 307c0d7e4585639429e94323eb34cd87, type: 2}
 --- !u!54 &1208072133
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1554,6 +1570,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &1578582774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1572,6 +1590,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 0
@@ -1764,6 +1784,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Button
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
