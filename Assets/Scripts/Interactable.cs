@@ -4,13 +4,15 @@ using UnityEngine;
 
 public abstract class Interactable : MonoBehaviour
 {
-    public Transform player;
+    private Transform player;
     public Material glow;
-    public Material regular;
+    private Material regular;
+    public AudioSource sound;
     float lastDist;
     Renderer rend;
     protected float glowFactor;
     protected bool interacted;
+
 
     private void Start()
     {
