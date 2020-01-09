@@ -13,6 +13,10 @@ public class PlayerStress : MonoBehaviour
 
     [SerializeField]
     private Transform playerCamera;
+
+    [SerializeField]
+    private AudioSource heartbeat;
+
     private float stressFactor;
 
     public static float maxStressValue = 100f;
@@ -45,6 +49,8 @@ public class PlayerStress : MonoBehaviour
         g.intensity.value = stressFactor / 100;
         v.intensity.value = stressFactor / 200;
         cG.saturation.value = -stressFactor;
+        heartbeat.pitch = stressFactor/100;
+
         if(stressFactor < minStressValue)
         {
             stressFactor = minStressValue;
