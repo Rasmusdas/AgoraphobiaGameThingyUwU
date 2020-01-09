@@ -40,7 +40,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (hit.transform.tag == "Interactable")
                 {
-                    hit.transform.GetComponent<Interactable>().Interact();
+                    Interactable i = hit.transform.GetComponent<Interactable>();
+                    if(!i.interacted)
+                    {
+                        i.Interact();
+                    }
                 }
             }
         }

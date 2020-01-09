@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
-public class FuzzyPlayerVision : MonoBehaviour
+public class PlayerStress : MonoBehaviour
 {
     [SerializeField]
     private PostProcessVolume ppv;
     private Grain g;
     private Vignette v;
+    private ColorGrading cG;
 
     [SerializeField]
     private Transform playerCamera;
     private float stressFactor;
-    private ColorGrading cG;
 
     public static float maxStressValue = 100f;
     public static float minStressValue = 25f;

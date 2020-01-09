@@ -12,7 +12,7 @@ public abstract class Interactable : MonoBehaviour
     float lastDist;
     Renderer rend;
     protected float glowFactor;
-    protected bool interacted;
+    public bool interacted;
 
 
     private void Start()
@@ -20,7 +20,6 @@ public abstract class Interactable : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rend = GetComponent<Renderer>();
         regular = rend.material;
-        glow.SetFloat("_Glow_Amount", 10);
     }
 
     public abstract void Interact();

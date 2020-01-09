@@ -10,8 +10,8 @@ public class Phone : Interactable
         phoneScreen.SetActive(true);
         interacted = true;
         StartCoroutine(CloseScreen());
-        FuzzyPlayerVision.minStressValue += 10;
-        FuzzyPlayerVision.maxStressValue += 10;
+        PlayerStress.minStressValue += 10;
+        PlayerStress.maxStressValue += 10;
     }
 
     private IEnumerator CloseScreen()

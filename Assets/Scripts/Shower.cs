@@ -9,8 +9,8 @@ public class Shower : Interactable
     public AudioSource turnOff;
     public override void Interact()
     {
-        FuzzyPlayerVision.minStressValue -= 10;
-        FuzzyPlayerVision.maxStressValue -= 10;
+        PlayerStress.minStressValue -= 10;
+        PlayerStress.maxStressValue -= 10;
         interacted = true;
         StartCoroutine(UseShower());
     }

@@ -6,8 +6,8 @@ public class Dresser : Interactable
 {
     public override void Interact()
     {
-        FuzzyPlayerVision.minStressValue -= 25;
-        FuzzyPlayerVision.maxStressValue -= 20;
+        PlayerStress.minStressValue -= 25;
+        PlayerStress.maxStressValue -= 20;
         interacted = true;
     }
 }

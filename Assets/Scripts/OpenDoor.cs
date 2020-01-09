@@ -11,6 +11,7 @@ public class OpenDoor : Interactable
     public override void Interact()
     {
         open = !open;
+        sound.Play();
     }
 
     public override void Update()
