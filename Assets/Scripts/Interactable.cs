@@ -4,9 +4,9 @@ using UnityEngine;
 
 public abstract class Interactable : MonoBehaviour
 {
-    private Transform player;
+    protected Transform player;
     public Material glow;
-    private Material regular;
+    protected Material regular;
     [SerializeField]
     protected AudioSource sound;
     float lastDist;

@@ -19,6 +19,7 @@ public class PlayerStress : MonoBehaviour
 
     private float stressFactor;
 
+    public float teeeest;
     public static float maxStressValue = 100f;
     public static float minStressValue = 25f;
     public static float deltaStress = 1f;
@@ -31,6 +32,7 @@ public class PlayerStress : MonoBehaviour
     }
     private void Update()
     {
+        teeeest = stressFactor;
         bool rayHit = Physics.Raycast(playerCamera.position, playerCamera.forward, out RaycastHit hit, 10f);
         if(rayHit)
         {
@@ -38,13 +40,13 @@ public class PlayerStress : MonoBehaviour
             {
                 if (stressFactor < maxStressValue)
                 {
-                    stressFactor += deltaStress*1.5f;
+                    stressFactor += deltaStress*100f*Time.deltaTime;
                 }
             }
         }
         if (stressFactor > minStressValue)
         {
-            stressFactor -= deltaStress * 0.5f;
+            stressFactor -= deltaStress * 50f * Time.deltaTime;
         }
         g.intensity.value = stressFactor / 100;
         v.intensity.value = stressFactor / 200;
