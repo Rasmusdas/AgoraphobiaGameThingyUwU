@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class OpenEndDoor : Interactable
 {
@@ -8,10 +9,13 @@ public class OpenEndDoor : Interactable
     public Vector3 closedRotation;
     public Vector3 openRotation;
     public Light endLight;
+    public Vector3 savePlayerRotation;
   
     public override void Interact()
     {
         open = true;
+        savePlayerRotation = player.eulerAngles;
+        StartCoroutine(EndGame());
     }
 
 
@@ -38,6 +42,13 @@ public class OpenEndDoor : Interactable
         if(open)
         {
             player.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            player.transform.eulerAngles = savePlayerRotation;
         }
+    }
+
+    IEnumerator EndGame()
+    {
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadScene(0);
     }
 }
