@@ -7,6 +7,7 @@ public class PauseMenuScript : MonoBehaviour
 {
     public GameObject canvas;
     bool active;
+    public List<GameObject> storyItems;
 
     // Start is called before the first frame update
     void Start()
@@ -27,17 +28,27 @@ public class PauseMenuScript : MonoBehaviour
 
     void TogglePauseGame()
     {
-        active = !active;
-        canvas.SetActive(active);
-        if (active)
+        bool storyItemActive = false;
+        foreach (GameObject g in storyItems)
         {
-            Time.timeScale = 0;
+            if (g.activeSelf)
+            {
+                storyItemActive = true;
+            }
         }
-        else
+        if (!storyItemActive)
         {
-            Time.timeScale = 1;
+            active = !active;
+            canvas.SetActive(active);
+            if (active)
+            {
+                Time.timeScale = 0;
+            }
+            else
+            {
+                Time.timeScale = 1;
+            }
         }
-
     }
 
     public void OpenMainMenu()
